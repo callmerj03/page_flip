@@ -21,6 +21,8 @@ class _HomeScreenState extends State<HomeScreen> {
         key: _controller,
         backgroundColor: Colors.white,
         showDragCutoff: true,
+        cutoff: 0.5,
+        cutoffback: 0.2,
         lastPage: Container(
             color: Colors.white,
             child: const Center(child: Text('Last Page!'))),

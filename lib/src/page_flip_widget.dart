@@ -6,6 +6,7 @@ class PageFlipWidget extends StatefulWidget {
     Key? key,
     this.duration = const Duration(milliseconds: 450),
     this.cutoff = 0.5,
+    this.cutoffback = 0.5,
     this.backgroundColor = const Color(0xFFFFFFCC),
     required this.children,
     this.initialIndex = 0,
@@ -20,6 +21,7 @@ class PageFlipWidget extends StatefulWidget {
   final Widget? lastPage;
   final bool showDragCutoff;
   final double cutoff;
+  final double cutoffback;
 
   @override
   PageFlipWidgetState createState() => PageFlipWidgetState();
@@ -143,7 +145,7 @@ class PageFlipWidgetState extends State<PageFlipWidget>
         }
       } else {
         if (!_isFirstPage &&
-            _controllers[pageNumber - 1].value >= widget.cutoff) {
+            _controllers[pageNumber - 1].value >= widget.cutoffback) {
           await previousPage();
         } else {
           if (_isFirstPage) {
